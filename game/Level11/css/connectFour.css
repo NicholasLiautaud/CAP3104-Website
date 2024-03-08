@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #7B9EA8;
+}
+
+.wrapper {
+  width: 700px;
+  background-color: #E9ECF2;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  padding: 10px;
+  background-color: #8FA8BA;
+  border-radius: 10px;
+}
+
+.grid-box {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  margin: 5px; /* Ensure there's space for the border */
+  box-sizing: border-box; /* This makes sure the padding and border are included in the width and height */
+}
+
+/* Style for the filled discs */
+.filled {
+  width: calc(100% - 10px); /* Fill the circle, adjust for the border */
+  height: calc(100% - 10px); /* Fill the circle, adjust for the border */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the disc in the box */
+  border-radius: 100%;
+}
+
+.filled.player1 {
+  background-color: yellow; /* Color for player 1 */
+}
+
+.filled.player2 {
+  background-color: red; /* Color for player 2 */
+}
+
+.player-wrappers {
+  margin-top: 20px;
+}
+
+.player1, .player2 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.player1 {
+  background-color: yellow;
+}
+
+.player2 {
+  background-color: red;
+}
+
+#playerTurn {
+  margin-bottom: 20px;
+}
+
+#playerTurn span {
+  font-weight: bold;
+}
+
+#message {
+  color: #FFD700; /* Updated color */
+  font-size: 2em; /* Updated size */
+  font-weight: bold; /* Bold font weight */
+  margin-top: 20px;
+  text-shadow: 2px 2px 4px #000000; /* Added text shadow */
+}
