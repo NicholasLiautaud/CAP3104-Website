@@ -4,6 +4,7 @@ function checkQuestionOne()
     if (answer1 == "Owen Roberts" || answer1 == "owen Roberts" || answer1 == "Owen roberts" || answer1 == "owen roberts")
     {
         alert("Correct!");
+        document.getElementById("question_one_submit").disabled = true;
     }
     else
     {
@@ -17,6 +18,7 @@ function checkQuestionTwo()
     if (answer2 == "GCM" || answer2 == "gcm" || answer2 == "Gcm" || answer2 == "GCm" || answer2 == "gCm" || answer2 == "gCM")
     {
         alert("Correct!");
+        document.getElementById("question_two_submit").disabled = true;
     }
     else
     {
