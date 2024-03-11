@@ -9,4 +9,4 @@ This is a Gaming Website Project for CAP 3104
 ### WIP Features ###
 
 - Forum
-- 15 Different Game Levels (WIP)
+- 15 Different Game Levels
