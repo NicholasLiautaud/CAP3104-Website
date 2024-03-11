@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" class="basePageSettings">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+    <div> <h2><a class="links" href="../index.html">Home</a></h2>  </div>
+    <title>Web Scavenger Hunt Game</title>
+    <h1>Welcome to the Web Scavenger Hunt Game</h1>
+</head>
+<body>
+    <div id="level1">
+        <h2>Level 1: Geolocation</h2>
+        <h3>Recommended Tools: <a class="links" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps">Google Maps</a></h3>
+        <p>Coordinates: 19.29562404779438, -81.35758471519128</p>
+        <p>Who is the following location named after?</p>
+            <form>
+                <input id="question_one_answer" type="text">
+                <button onclick="checkQuestionOne()">Submit</button>
+            </form>
+        <p>Do some research on the aforementioned location. What three letters are associated with IATA?</p>
+            <form>
+                <input id="question_two_answer" type="text">
+                <button onclick="checkQuestionTwo()">Submit</button>
+            </form>
+    </div>
+</body>
+</html>
