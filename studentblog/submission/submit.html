@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Blog | Main Page</title>
+    <link href="\css\02.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" type="image/png" href="https://neothemes.neocities.org/images/favicon.gif" />
+    <script src="scripts/submissionchecker.js"></script>
+</head>
+<body class="scroll">
+    <div id="container">
+        <div id="header">
+            <h1 class="title">CAP 3104 Student Blog</h1>
+        </div>
+        <div class="navbar">
+            <ul>
+            <li><a href="/..">Home</a></li>
+            <li><a href="\studentblog\main.html">Back to Main Student Blog Page</a></li>
+        </ul>
+        </div>
+        <div class="wrapper">
+            <div class="extender-of-page">
+                <div class="section-title">Submission Form</div>
+                    <div class="content">
+                        <form id = "uploadsubmission" method = "post" action = "#" enctype="multipart/form-data">
+                        <p><strong>Submission Section</strong></p>
+                            <label for="firstName"><br><strong>First Name: </strong></label>
+                            <input type="text" name="firstName" id="firstName" required><br>
+
+                            <label for="lastName"><br><strong>Last Name: </strong></label>
+                            <input type="text" name="lastName" id="lastName" required><br>
+
+                            <label for="email"><br><strong>Email: </strong></label>
+                            <input type="email" name="email" id="email" required><br><br><br>
+                            
+                            <label for="uploadsubmission"><strong>File Upload: </strong></label>
+                            <input id = "uploadsubmission" type = "file" accept=".docx, .pdf"/>
+                            <br><br>
+                            
+                            <label for="comment-box"><strong>Comment: </strong></label>
+                            <textarea name="comment-box" id="comment-box" cols="80" rows="10" { font-size: 14px; }></textarea><br><br>
+                            <input type = "submit" value = "submit" id = "submit" required/>
+                        </form>
+                    </div>
+            </div>
+            <div id="right-sidebar">
+            <div class="section-title">
+                Heading
+            </div>
+                <div class="content"><p>Text and other little things can be added to this section. Such as if you were to use this layout for a blog or personal site.</p></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="footer">
+    </div>
+    </div>
+    </body>
+    <style>
+        .extender-of-page {
+            width: 1500px;
+            text-align: center;
+        }
+    </style>
+</html>
