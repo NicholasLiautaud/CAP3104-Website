@@ -8,5 +8,5 @@ This is a Gaming Website Project for CAP 3104
 
 ### WIP Features ###
 
-- Forum
+- Student Blog
 - 15 Different Game Levels
