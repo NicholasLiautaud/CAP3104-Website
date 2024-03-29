@@ -6,7 +6,7 @@ This is a Gaming Website Project for CAP 3104
 - Index Page (Done)
 - Navigation Bar (Done)
 
-### WIP Features ###
+### 👷 WIP Features ###
 
 - Student Blog
 - 15 Different Game Levels
