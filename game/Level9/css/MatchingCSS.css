@@ -1,0 +1,18 @@
+.memory-card {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    cursor: pointer;
+}
+
+/* This class will be added to a card upon a correct match */
+.matched {
+    background-color: #28a745;
+    cursor: not-allowed;
+}
