@@ -1,0 +1,48 @@
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f8f9fa;
+        margin: 0;
+    }
+    .container {
+        text-align: center;
+        padding: 20px;
+        border: 2px solid #dee2e6;
+        border-radius: 10px;
+        background: white;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .simon-button {
+        width: 150px;
+        height: 150px;
+        margin: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: gray; /* Default less vivid color */
+        transition: background-color 0.5s, transform 0.3s, box-shadow 0.3s;
+    }
+    #red { background-color: #dc3545; }
+    #green { background-color: #28a745; }
+    #blue { background-color: #007bff; }
+    #yellow { background-color: #ffc107; }
+    .simon-button:hover {
+        transform: scale(1.05); /* Slightly enlarge buttons on hover */
+    }
+    .active {
+        animation: flashActive 0.5s 3; /* Flash brighter colors and transform */
+    }
+    @keyframes flashActive {
+        0%, 100% {
+            background-color: gray; /* Return to less vivid color */
+            transform: scale(1);
+        }
+        50% {
+            background-color: white; /* Flash to a very bright color */
+            transform: scale(1.2); /* Increase size dramatically */
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); /* Large shadow for more depth */
+        }
+    }
+</style>

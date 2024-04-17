@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+        #feedback {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        #attempts {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Guess the Number!</h1>
+        <p class="lead text-center">I'm thinking of a number between 1 and 100.</p>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <input type="number" id="guess" class="form-control" placeholder="Enter your guess..." autofocus>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary" onclick="checkGuess()">Guess</button>
+            </div>
+        </div>
+        <p id="feedback" class="text-center"></p>
+        <p id="attempts" class="text-center"></p>
+    </div>
+
+    <script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let guessCount = 0;
+        
+        function checkGuess() {
+            const guess = parseInt(document.getElementById('guess').value);
+            const feedback = document.getElementById('feedback');
+            const attempts = document.getElementById('attempts');
+            guessCount++;
+            
+            if (guess < randomNumber) {
+                feedback.textContent = 'Too low!';
+                attempts.textContent = 'Attempts: ' + guessCount;
+            } else if (guess > randomNumber) {
+                feedback.textContent = 'Too high!';
+                attempts.textContent = 'Attempts: ' + guessCount;
+            } else {
+                feedback.textContent = 'Correct! Well done! The number was ' + randomNumber + '.';
+                attempts.textContent = 'Total guesses: ' + guessCount;
+                document.getElementById('guess').disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>

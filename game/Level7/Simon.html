@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Says Game</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .simon-button {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: gray; /* Default less vivid color */
+            transition: background-color 0.5s, transform 0.3s, box-shadow 0.3s;
+        }
+        #red { background-color: #dc3545; }
+        #green { background-color: #28a745; }
+        #blue { background-color: #007bff; }
+        #yellow { background-color: #ffc107; }
+        .simon-button:hover {
+            transform: scale(1.05); /* Slightly enlarge buttons on hover */
+        }
+        .active {
+            animation: flashActive 0.5s 3; /* Flash brighter colors and transform */
+        }
+        @keyframes flashActive {
+            0%, 100% {
+                background-color: gray; /* Return to less vivid color */
+                transform: scale(1);
+            }
+            50% {
+                background-color: white; /* Flash to a very bright color */
+                transform: scale(1.2); /* Increase size dramatically */
+                box-shadow: 0 0 30px rgba(0, 0, 0, 0.8); /* Large shadow for more depth */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simon Says</h1>
+        <div class="row justify-content-center mt-4">
+            <div id="red" class="simon-button"></div>
+            <div id="green" class="simon-button"></div>
+            <div id="blue" class="simon-button"></div>
+            <div id="yellow" class="simon-button"></div>
+        </div>
+        <button class="btn btn-primary mt-4" id="startButton">Start Game</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const buttons = {
+                red: document.getElementById('red'),
+                green: document.getElementById('green'),
+                blue: document.getElementById('blue'),
+                yellow: document.getElementById('yellow')
+            };
+            let sequence = [];
+            let userSequence = [];
+            let inGame = false;
+
+            document.getElementById('startButton').addEventListener('click', startGame);
+
+            function startGame() {
+                sequence = [];
+                userSequence = [];
+                inGame = true;
+                nextRound();
+            }
+
+            function nextRound() {
+                userSequence = [];
+                sequence.push(Object.keys(buttons)[Math.floor(Math.random() * 4)]);
+                sequence.forEach((color, index) => {
+                    setTimeout(() => {
+                        activateButton(color);
+                    }, 1000 * index);
+                });
+            }
+
+            function activateButton(color) {
+                const button = buttons[color];
+                button.classList.add('active');
+                setTimeout(() => {
+                    button.classList.remove('active');
+                }, 500);
+            }
+
+            Object.values(buttons).forEach(button => {
+                button.addEventListener('click', (e) => {
+                    if (!inGame) return;
+                    const color = e.target.id;
+                    userSequence.push(color);
+                    activateButton(color);
+                    checkUserSequence();
+                });
+            });
+
+            function checkUserSequence() {
+                if (userSequence[userSequence.length - 1] !== sequence[userSequence.length - 1]) {
+                    alert('Game over! Wrong sequence.');
+                    inGame = false;
+                    return;
+                }
+                if (userSequence.length === sequence.length) {
+                    setTimeout(nextRound, 1000);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
