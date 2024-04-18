@@ -1,0 +1,23 @@
+.container {
+  max-width: 600px;
+}
+
+.game-cell {
+  border: 2px solid #dee2e6;
+  min-height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  cursor: pointer;
+  background-color: #f8f9fa;
+}
+
+.game-cell {
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+
+#ticTacToeBoard {
+  margin: 20px 0;
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Scramble Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #gameArea {
+            margin-top: 20px;
+        }
+        .letter-box {
+            user-select: none;
+            cursor: pointer;
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 24px;
+            color: white;
+            background-color: #007bff;
+            border-radius: 5px;
+        }
+        #answerArea {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body class="container py-4">
+    <h1 class="text-center mb-4">Word Scramble Game</h1>
+    <div class="text-center">
+        <div id="scrambledWord" class="mb-3"></div>
+        <div id="answerArea" class="mb-3"></div>
+        <button id="checkButton" class="btn btn-success">Check Answer</button>
+        <div id="resultMessage" class="mt-3"></div>
+    </div>
+
+    <script>
+        const words = ["example", "scramble", "bootstrap", "challenge", "javascript"];
+        let currentWord = "";
+        let answer = "";
+
+        function shuffleWord(word) {
+            const shuffled = word.split('').sort(() => 0.5 - Math.random()).join('');
+            return shuffled;
+        }
+
+        function displayScrambledWord() {
+            const scrambled = shuffleWord(currentWord);
+            const scrambledDiv = document.getElementById('scrambledWord');
+            scrambledDiv.innerHTML = "";
+            scrambled.split('').forEach(char => {
+                const letterBox = document.createElement('span');
+                letterBox.classList.add('letter-box');
+                letterBox.textContent = char;
+                letterBox.onclick = function() {
+                    answer += char;
+                    document.getElementById('answerArea').textContent = answer;
+                    letterBox.style.visibility = 'hidden';
+                };
+                scrambledDiv.appendChild(letterBox);
+            });
+        }
+
+        function checkAnswer() {
+            const resultMessage = document.getElementById('resultMessage');
+            if (answer === currentWord) {
+                resultMessage.textContent = "Correct! Well done!";
+                resultMessage.className = 'text-success';
+            } else {
+                resultMessage.textContent = "Incorrect, try again!";
+                resultMessage.className = 'text-danger';
+            }
+        }
+
+        document.getElementById('checkButton').addEventListener('click', () => {
+            checkAnswer();
+        });
+
+        function startGame() {
+            currentWord = words[Math.floor(Math.random() * words.length)];
+            answer = "";
+            document.getElementById('answerArea').textContent = answer;
+            displayScrambledWord();
+        }
+
+        startGame();
+    </script>
+</body>
+</html>

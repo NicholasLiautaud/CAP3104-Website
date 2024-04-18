@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balloon Pop Game</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #gameArea {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            position: relative;
+            margin: 20px auto;
+            background-color: #add8e6; /* Light blue to simulate sky */
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .balloon {
+            width: 50px;
+            height: 70px;
+            position: absolute;
+            bottom: 0;
+            background-color: #dc3545;
+            border-radius: 25px 25px 5px 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .balloon:hover {
+            transform: scale(1.15);
+            background-color: #fd7e14;
+        }
+        #scoreBoard {
+            font-size: 1.5rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-4">Balloon Pop Game</h1>
+        <div class="text-center mb-3">
+            <button id="startButton" class="btn btn-lg btn-primary">Start Game</button>
+        </div>
+        <div id="scoreBoard" class="text-center mb-2">Score: 0</div>
+        <div id="gameArea"></div>
+    </div>
+
+    <script>
+        const gameArea = document.getElementById('gameArea');
+        const startButton = document.getElementById('startButton');
+        const scoreBoard = document.getElementById('scoreBoard');
+        let score = 0;
+        let gameInterval;
+
+        startButton.addEventListener('click', () => {
+            gameArea.innerHTML = ''; // Clear the game area
+            score = 0; // Reset score
+            updateScoreBoard();
+            clearInterval(gameInterval); // Clear existing interval if any
+            startGame();
+        });
+
+        function startGame() {
+            gameInterval = setInterval(() => {
+                createBalloon();
+            }, 800); // Create a balloon every 800 ms
+        }
+
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            balloon.style.left = `${Math.random() * (gameArea.offsetWidth - 50)}px`; // Random position
+            gameArea.appendChild(balloon);
+
+            let position = 0;
+            const floatInterval = setInterval(() => {
+                if (position >= (gameArea.offsetHeight - 70)) {
+                    clearInterval(floatInterval);
+                    gameArea.removeChild(balloon);
+                } else {
+                    position += 2;
+                    balloon.style.bottom = `${position}px`;
+                }
+            }, 20);
+
+            balloon.addEventListener('click', () => {
+                score++;
+                updateScoreBoard();
+                clearInterval(floatInterval);
+                balloon.remove();
+            });
+        }
+
+        function updateScoreBoard() {
+            scoreBoard.textContent = `Score: ${score}`;
+        }
+    </script>
+</body>
+</html>
