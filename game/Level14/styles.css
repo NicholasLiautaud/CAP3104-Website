@@ -1,0 +1,50 @@
+.basePageSettings 
+{
+    text-align: center;
+    color: white;
+    background-color: black;
+} /* main hex color is #565970 */
+
+
+.links 
+{
+    color: red;
+}
+
+.red-bold
+{
+    color: red;
+    font-style: italic;
+}
+
+.nav
+{
+    overflow: hidden;
+    background-color: black;
+}
+
+.nav a
+{
+    float: middle;
+    color: red;
+    text-align: center;
+    padding: 14px 16px;
+    /* text-decoration: none;
+    font-size: 17px; */
+}
+
+.nav button
+{
+    float: middle;
+    text-align: center;
+    padding: 5px 5px;
+    /* text-decoration: none;
+    font-size: 17px; */
+}
+
+.light-mode
+{
+    text-align: center;
+    color: black;
+    background-color: white;
+}

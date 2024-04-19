@@ -1,0 +1,18 @@
+.basePageSettings 
+{
+    text-align: center;
+    color: white;
+    background-color: black;
+} /* main hex color is #565970 */
+
+
+.links 
+{
+    color: red;
+}
+
+.red-bold
+{
+    color: red;
+    font-style: italic;
+}

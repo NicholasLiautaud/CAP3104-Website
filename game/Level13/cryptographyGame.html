@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" class="basePageSettings">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+    <div> <h2><a class="links" href="/..">Home</a></h2>  </div>
+    <title>Cryptology Game</title>
+    <h1>Cryptography Game</h1>
+</head>
+<body>
+    <div id="level1">
+        <h2>Level 1: Easy</h2>
+        <h3>Recommended Tools: 
+            <a class="links" target="_blank" rel="noopener noreferrer" href="https://cryptii.com/">Cryptii</a>
+            <a class="links" target="_blank" rel="noopener noreferrer" href="https://www.dcode.fr/">DCode</a>
+            <a class="links" target="_blank" rel="noopener noreferrer" href="https://ciphertools.co.uk/">CipherTools</a>
+        </h3>
+        <p>
+            <p></p>
+            <strong>Text:</strong> Qbspbz Jhlzhy
+        </p>
+        <p>
+            When you decrypt this text, what do you get?
+        </p>
+            <form>
+                <textarea id="question_one_answer" cols="50" rows="10">Enter text here...</textarea><br><br>
+                <button id="question_one_submit" onclick="checkQuestionOne()">Submit</button>
+            </form>
+    </div>
+    <div id="level2">
+        <h2>Level 2: Medium</h2>
+        <p>
+            <p></p>
+            <strong>Text:</strong> Qba'g lbh whfg ybir pelcgbtencul naq ahzoref?
+        </p>
+        <p>
+            When you decrypt this text, what do you get?
+        </p>
+            <form>
+                <textarea id="question_two_answer" cols="50" rows="10">Enter text here...</textarea><br><br>
+                <button id="question_two_submit" onclick="checkQuestionTwo()">Submit</button>
+            </form>
+    </div>
+    <div id="level3">
+        <h2>Level 3: Hard</h2>
+            <h3 class="links">
+                Hint: You must run the text through the last two ciphers!
+            </h3>
+        <p>
+            <p></p>
+            <strong>Starting Text:</strong> Sio'ly mi mguln! Sio zcaolyx cn ion!
+        </p>
+        <p>
+            When you <STRONG class="red-bold">FULLY</STRONG> decrypt this text, what do you get?
+        </p>
+            <form>
+                <textarea id="question_three_answer" cols="50" rows="10">Enter text here...</textarea><br><br>
+                <button id="question_three_submit" onclick="checkQuestionThree()">Submit</button>
+            </form>
+    </div>
+</body>
+</html>
