@@ -1,0 +1,24 @@
+.scoreboard {
+    color: #fff;
+    font-size: 2em;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Arial', sans-serif;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+}
+
+canvas {
+    background: #222;
+    display: block;
+    position: absolute;
+}
