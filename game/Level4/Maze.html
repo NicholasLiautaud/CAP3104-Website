@@ -3,97 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Falling Blocks Game</title>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
-        #gameArea {
-            width: 100vw;
-            height: 100vh;
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .paddle {
-            width: 100px;
-            height: 20px;
-            background-color: #333;
-            position: absolute;
-            bottom: 20px;
-        }
-        .block {
-            width: 40px;
-            height: 40px;
-            background-color: #f00; /* Initial color of the block */
-            position: absolute;
-        }
-    </style>
+    <title>Snake Game</title>
+    <link href="css/mazecss.css" rel="stylesheet">
 </head>
 <body>
+    <div id="score">Score: 0</div>
     <div id="gameArea">
-        <div class="paddle"></div>
-        <div class="block"></div>
+        <canvas id="snakeCanvas"></canvas>
     </div>
-    <script>
-        const gameArea = document.getElementById('gameArea');
-        const paddle = document.querySelector('.paddle');
-        const block = document.querySelector('.block');
-        let score = 0;
-        let gameSpeed = 150; // Further decreased speed of the falling blocks in milliseconds
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'ArrowLeft') {
-                movePaddle(-20); // Move paddle left
-            } else if (event.key === 'ArrowRight') {
-                movePaddle(20); // Move paddle right
-            }
-        });
-
-        function movePaddle(delta) {
-            const newPosition = paddle.offsetLeft + delta;
-            const gameWidth = gameArea.offsetWidth;
-            const paddleWidth = paddle.offsetWidth;
-
-            if (newPosition >= 0 && newPosition + paddleWidth <= gameWidth) {
-                paddle.style.left = `${newPosition}px`;
-            }
-        }
-
-        function startGame() {
-            moveBlock();
-        }
-
-        function moveBlock() {
-            const gameWidth = gameArea.offsetWidth;
-            const blockWidth = block.offsetWidth;
-            const randomPosition = Math.floor(Math.random() * (gameWidth - blockWidth));
-            block.style.left = `${randomPosition}px`;
-
-            let position = 0;
-
-            const interval = setInterval(() => {
-                position += 5; // Speed of the falling block
-
-                if (position >= gameArea.offsetHeight) {
-                    clearInterval(interval);
-                    block.remove();
-                    score++;
-                    updateScore();
-                    moveBlock(); // Start a new block falling
-                } else {
-                    block.style.top = `${position}px`;
-                }
-            }, gameSpeed);
-        }
-
-        function updateScore() {
-            document.body.innerHTML += `<div id="score">Score: ${score}</div>`;
-        }
-
-        startGame();
-    </script>
+    <script src="js/mazejs.js"></script>
 </body>
 </html>

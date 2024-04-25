@@ -1,23 +1,28 @@
-.container {
-  max-width: 600px;
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
 }
 
-.game-cell {
-  border: 2px solid #dee2e6;
-  min-height: 120px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2em;
-  cursor: pointer;
-  background-color: #f8f9fa;
+#score {
+    color: white; /* Ensuring it stands out against a potentially dark background */
+    font-size: 24px; /* Make it large enough to be easily visible */
+    padding: 10px; /* Some padding around the text */
 }
 
-.game-cell {
-  flex: 0 0 33.333333%;
-  max-width: 33.333333%;
+#gameArea {
+    width: 400px;
+    height: 400px;
+    border: 1px solid white;
 }
 
-#ticTacToeBoard {
-  margin: 20px 0;
+canvas {
+    background-color: #000;
+    display: block;
+    position: relative;
+    margin: auto;
 }
